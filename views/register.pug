@@ -1,0 +1,42 @@
+extends ./home.pug
+block content
+  .container
+    - var e = error
+    if e
+      p.alert.alert-danger #{e}
+    form(method='POST', action='register')
+      .modal-content
+        .modal-header.text-center
+          h4.modal-title.w-100.font-weight-bold Sign up
+        |       
+        .modal-body.mx-3
+          .md-form.mb-5
+            i.fas.fa-user.prefix.grey-text
+            |           
+            input#orangeForm-name.form-control.validate(type='text', name="name")
+            |           
+            label(data-error='wrong', data-success='right', for='orangeForm-name') Your name
+          |         
+          .md-form.mb-5
+            i.fas.fa-envelope.prefix.grey-text
+            |           
+            input#orangeForm-email.form-control.validate(type='email', name="email")
+            |           
+            label(data-error='wrong', data-success='right', for='orangeForm-email') Your email
+          |         
+          .md-form.mb-4
+            i.fas.fa-lock.prefix.grey-text
+            |           
+            input#orangeForm-pass.form-control.validate(type='password', name="password")
+            |           
+            label(data-error='wrong', data-success='right', for='orangeForm-pass') Your password
+
+          .md-form.mb-4
+            i.fas.fa-lock.prefix.grey-text
+            |           
+            input#orangeForm-pass.form-control.validate(type='password', name="passwordConfirmation")
+            |           
+            label(data-error='wrong', data-success='right', for='orangeForm-pass') Confirm your password          
+        |       
+        .modal-footer.d-flex.justify-content-center
+          button.btn.btn-deep-orange Sign up
